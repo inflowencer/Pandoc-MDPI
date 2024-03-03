@@ -16,7 +16,8 @@ export PDF_ENGINE    ?= pdflatex
 #                             --bibliography ${BIB_PATH} --metadata-file ${META_PATH} \
 #                             --columns=100
 export PANDOC_COMMON_OPTS = --verbose -F pandoc-include -F pandoc-crossref --citeproc \
-                            --metadata-file ${META_PATH} --columns=100
+                            --metadata-file=${META_PATH} --columns=100 \
+                            --bibliography=${BIB_PATH} --natbib
 export PANDOC_LATEX_OPTS  = ${PANDOC_COMMON_OPTS} --pdf-engine ${PDF_ENGINE} \
                             --template ${TEMPLATE_PATH} --number-sections    \
 							-M link-citations=true -M documentclass=${DOCUMENTCLASS}
