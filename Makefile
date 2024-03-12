@@ -32,7 +32,7 @@ latexmk:
 > latexmk -pdf -pdflatex=${PDF_ENGINE} main.tex
 
 scale:
-> gs -sDEVICE=pdfwrite -dPDFSETTINGS=/printer -dNOPAUSE -dBATCH -sOutputFile=../${EXPORT_DIR}/article.pdf main.pdf
+> gs -sDEVICE=pdfwrite  -dDownsampleColorImages=true -dColorImageResolution=600 -dNOPAUSE -dBATCH -sOutputFile=../${EXPORT_DIR}/article.pdf main.pdf
 > gs -sDEVICE=pdfwrite -dPDFSETTINGS=/screen -dNOPAUSE -dBATCH -sOutputFile=../${EXPORT_DIR}/draft.pdf ../${EXPORT_DIR}/article.pdf
 
 all: pandoc latexmk scale
